@@ -87,11 +87,11 @@ jobs:
       - name: Build Docker image
         run: |
           echo "Building Docker image..."
-          docker build -t $DOCKERHUB_USERNAME/taskflow-api:latest .
+          docker build -t $DOCKER_USERNAME/taskflow-api:latest .
 
       - name: Push to Docker Hub
         run: |
           echo "Logging in to Docker Hub..."
-          echo $DOCKERHUB_TOKEN | docker login -u $DOCKERHUB_USERNAME --password-stdin
+          echo $DOCKER_TOKEN | docker login -u $DOCKER_USERNAME --password-stdin
           echo "Pushing image to Docker Hub..."
-          docker push $DOCKERHUB_USERNAME/taskflow-api:latest
+          docker push $DOCKER_USERNAME/taskflow-api:latest
